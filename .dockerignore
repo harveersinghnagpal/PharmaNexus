@@ -1,0 +1,49 @@
+.git
+.gitignore
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+
+# Root docs and local-only artifacts
+build_errors.log
+build_errors_utf8.log
+test_billing.py
+
+# Python
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+**/.coverage
+backend/venv
+.venv
+venv
+
+# Node / Next
+frontend/.next
+frontend/node_modules
+**/node_modules
+**/*.tsbuildinfo
+
+# Logs and uploads
+backend/logs
+backend/uploads
+logs
+uploads
+*.log
+
+# Environment files
+.env
+.env.*
+backend/.env
+frontend/.env
+frontend/.env.*
+backend/.env.*
+
+# Nested repo metadata
+frontend/.git
+backend/.git

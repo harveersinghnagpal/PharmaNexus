@@ -1,0 +1,74 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Git metadata from nested repos
+frontend/.git/
+backend/.git/
+
+# Environment files
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+frontend/.env.*
+backend/.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+env/
+backend/venv/
+
+# Node / Next.js
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+frontend/tsconfig.tsbuildinfo
+
+# Logs / generated reports
+*.log
+logs/
+backend/logs/
+build_errors.log
+build_errors_utf8.log
+frontend/eslint_summary.txt
+frontend/eslint_summary_utf8.txt
+frontend/frontend_eslint.json
+frontend/frontend_eslint_utf8.json
+frontend/frontend_tsc.log
+frontend/frontend_tsc_utf8.log
+
+# Runtime / local data
+backend/uploads/
+uploads/
+*.sqlite3
+*.db
+
+# Docker / containers
+pgdata/
+postgres-data/
+
+# Misc
+*.tmp
+*.temp
