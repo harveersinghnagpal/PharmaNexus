@@ -53,6 +53,7 @@ async def list_audit_logs(
     Supports filtering by entity, action, user, store, and date range.
     """
     query = select(AuditLog).order_by(AuditLog.timestamp.desc())
+    query = query.where(AuditLog.action.notin_([AuditAction.AI_DECISION, AuditAction.AI_REVIEWED]))
 
     if entity_type:
         query = query.where(AuditLog.entity_type == entity_type)
@@ -108,6 +109,7 @@ async def get_audit_summary(
     query = (
         select(AuditLog.action, func.count(AuditLog.id).label("count"))
         .where(AuditLog.timestamp >= since)
+        .where(AuditLog.action.notin_([AuditAction.AI_DECISION, AuditAction.AI_REVIEWED]))
         .group_by(AuditLog.action)
         .order_by(func.count(AuditLog.id).desc())
     )

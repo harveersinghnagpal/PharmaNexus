@@ -122,8 +122,8 @@ export default function AnalyticsPage() {
 
   return (
     <ProtectedPage capability={CAPABILITIES.ANALYTICS_VIEW}>
-      <div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24, gap: 16, flexWrap: 'wrap' }}>
+      <div className="page-shell">
+        <div className="page-header">
           <div>
             <h1 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>Analytics Workspace</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>

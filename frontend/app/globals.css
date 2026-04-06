@@ -396,6 +396,18 @@ body {
   transition: margin-left 0.3s ease;
 }
 
+.page-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ai-chat-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 20px;
+}
+
 /* Tablet: icon sidebar */
 @media (min-width: 768px) and (max-width: 1023px) {
   .sidebar { width: 64px; }
@@ -411,6 +423,13 @@ body {
     padding: 16px;
     padding-top: calc(var(--header-height) + 16px); /* Space for mobile header */
     padding-bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 16px); /* Space for bottom nav */
+  }
+
+  .page-shell { gap: 16px; }
+
+  .ai-chat-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 

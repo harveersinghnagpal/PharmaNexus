@@ -135,7 +135,7 @@ export default function PrescriptionsPage() {
 
   return (
     <ProtectedPage capability={CAPABILITIES.PRESCRIPTIONS_VIEW}>
-      <div>
+      <div className="page-shell">
         {/* Page Header */}
       <div className="page-header">
         <div>

@@ -155,8 +155,8 @@ export default function DashboardPage() {
 
   return (
     <ProtectedPage capability={CAPABILITIES.DASHBOARD_VIEW}>
-      <div>
-        <div style={{ marginBottom: 28 }}>
+      <div className="page-shell">
+        <div>
           <h1 style={{ fontSize: 26, fontWeight: 700, marginBottom: 4 }}>
             Good {new Date().getHours() < 12 ? 'morning' : new Date().getHours() < 17 ? 'afternoon' : 'evening'},{' '}
             {user.name.split(' ')[0]}

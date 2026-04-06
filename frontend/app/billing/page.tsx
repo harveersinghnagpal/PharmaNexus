@@ -349,8 +349,8 @@ export default function BillingPage() {
 
   return (
     <ProtectedPage capability={CAPABILITIES.BILLING_VIEW}>
-      <div>
-        <div style={{ marginBottom: 24 }}>
+      <div className="page-shell">
+        <div>
           <h1 style={{ fontSize: 24, fontWeight: 700 }}>Billing POS</h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginTop: 4 }}>
             Prescription and OTC billing with automatic stock deduction.

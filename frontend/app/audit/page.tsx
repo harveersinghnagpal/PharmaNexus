@@ -112,7 +112,7 @@ export default function AuditPage() {
 
   return (
     <ProtectedPage capability={CAPABILITIES.AUDIT_VIEW}>
-      <div>
+      <div className="page-shell">
         {/* Header */}
       <div className="page-header">
         <div>
@@ -178,7 +178,6 @@ export default function AuditPage() {
           <option value="BATCH_ADDED">Batch Added</option>
           <option value="TRANSFER_CREATED">Transfer</option>
           <option value="PRESCRIPTION_APPROVED">Rx Approved</option>
-          <option value="AI_DECISION">AI Decision</option>
           <option value="LOGIN">Login</option>
         </select>
       </div>

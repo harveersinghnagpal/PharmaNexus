@@ -310,8 +310,8 @@ export default function InventoryPage() {
 
   return (
     <ProtectedPage capability={CAPABILITIES.INVENTORY_VIEW}>
-      <div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+      <div className="page-shell">
+        <div className="page-header">
           <div>
             <h1 style={{ fontSize: 24, fontWeight: 700, marginBottom: 4 }}>Inventory Management</h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>Batch-aware stock tracking, replenishment planning, and branch balancing</p>

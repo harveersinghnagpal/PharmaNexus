@@ -8,7 +8,7 @@ from sqlalchemy import select
 from app.core.database import AsyncSessionLocal
 from app.models.audit import AuditLog, AuditAction
 from app.events import bus, DomainEvent, SALE_CREATED, BATCH_ADDED, TRANSFER_CREATED
-from app.events import PRESCRIPTION_CREATED, PRESCRIPTION_APPROVED, PRESCRIPTION_DISPENSED, AI_DECISION_MADE, USER_LOGIN
+from app.events import PRESCRIPTION_CREATED, PRESCRIPTION_APPROVED, PRESCRIPTION_DISPENSED, USER_LOGIN
 from loguru import logger
 
 
@@ -153,28 +153,6 @@ async def _handle_prescription_approved(event: DomainEvent):
             logger.error(f"AuditService: Failed to log prescription.approved: {e}")
 
 
-async def _handle_ai_decision(event: DomainEvent):
-    async with AsyncSessionLocal() as db:
-        try:
-            await write_audit_log(
-                db=db,
-                entity_type="AIDecision",
-                entity_id=str(event.payload.get("log_id")),
-                action=AuditAction.AI_DECISION,
-                user_id=event.payload.get("user_id"),
-                store_id=event.payload.get("store_id"),
-                new_value={
-                    "feature": event.payload.get("feature"),
-                    "confidence": event.payload.get("confidence_score"),
-                    "requires_review": event.payload.get("requires_human_review"),
-                },
-                description=f"AI {event.payload.get('feature')} decision — confidence: {event.payload.get('confidence_level')}",
-                request_id=event.request_id,
-            )
-            await db.commit()
-        except Exception as e:
-            logger.error(f"AuditService: Failed to log ai.decision_made: {e}")
-
 
 async def _handle_user_login(event: DomainEvent):
     async with AsyncSessionLocal() as db:
@@ -202,6 +180,5 @@ def register_audit_handlers():
     bus.subscribe(TRANSFER_CREATED, _handle_transfer_created)
     bus.subscribe(PRESCRIPTION_CREATED, _handle_prescription_created)
     bus.subscribe(PRESCRIPTION_APPROVED, _handle_prescription_approved)
-    bus.subscribe(AI_DECISION_MADE, _handle_ai_decision)
     bus.subscribe(USER_LOGIN, _handle_user_login)
     logger.info("AuditService: All audit handlers registered.")
